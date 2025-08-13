@@ -1,30 +1,13 @@
 # Dependencies
-/node_modules
 
 # Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
 # Logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
 
 # OS-generated files
-.DS_Store
-Thumbs.db
 
-# IDEs
-.vscode/
-.idea/
+# IDES
 
-# gemini-cli settings
-.gemini/
+# client settings
 
-# GitHub App credentials
-gha-creds-*.json
+# IQ credentials
