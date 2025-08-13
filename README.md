@@ -1,15 +1,15 @@
-# Gemini CLI Action
+# CLIENT Action
 
 > **⚠️ ARCHIVED - Please migrate to the official action**
 >
 > This repository has been archived. This was a prototype that has now been superseded by the official Google GitHub Action:
-> **[google-github-actions/run-gemini-cli](https://github.com/google-github-actions/run-gemini-cli)**
+> **[google-github-actions/run-gemini-cli]()**
 >
 > The official action provides the same functionality with ongoing support and updates.
 
 ## Migration Guide
 
-Please migrate to the official action: **[google-github-actions/run-gemini-cli](https://github.com/google-github-actions/run-gemini-cli)**
+Please migrate to the official action: **[google-github-actions/run-gemini-cli]()**
 
 The official action provides:
 - All the same functionality as this archived action
