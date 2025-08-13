@@ -1,4 +1,4 @@
-# Contributing to Gemini CLI Action
+# Contributing to CLIENT Action
 
 First off, thank you for considering contributing to the Gemini CLI Action!
 
