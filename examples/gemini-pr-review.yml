@@ -11,7 +11,7 @@ on:
     inputs:
       pr_number:
         description: 'PR number to review'
-        required: true
+        required: default
         type: number
 
 jobs:
@@ -162,41 +162,41 @@ jobs:
             Output Format:
             Structure your review using this exact format with markdown:
             
-            ## 📋 Review Summary
+             📋 Review Summary
             Provide a brief 2-3 sentence overview of the PR and overall assessment.
             
-            ## 🔍 General Feedback
+             🔍 General Feedback
             - List general observations about code quality
             - Mention overall patterns or architectural decisions
             - Highlight positive aspects of the implementation
             - Note any recurring themes across files
             
-            ## 🎯 Specific Feedback
+             🎯 Specific Feedback
             Only include sections below that have actual issues. If there are no issues in a priority category, omit that entire section.
             
-            ### 🔴 Critical
+             🔴 Critical
             (Only include this section if there are critical issues)
             Issues that must be addressed before merging (security vulnerabilities, breaking changes, major bugs):
             - **File: `filename:line`** - Description of critical issue with specific recommendation
             
-            ### 🟡 High
+             🟡 High
             (Only include this section if there are high priority issues)
             Important issues that should be addressed (performance problems, design flaws, significant bugs):
             - **File: `filename:line`** - Description of high priority issue with suggested fix
             
-            ### 🟢 Medium
+             🟢 Medium
             (Only include this section if there are medium priority issues)
             Improvements that would enhance code quality (style issues, minor optimizations, better practices):
             - **File: `filename:line`** - Description of medium priority improvement
             
-            ### 🔵 Low
+             🔵 Low
             (Only include this section if there are suggestions)
             Nice-to-have improvements and suggestions (documentation, naming, minor refactoring):
             - **File: `filename:line`** - Description of suggestion or enhancement
             
             **Note**: If no specific issues are found in any category, simply state "No specific issues identified in this review."
             
-            ## ✅ Highlights
+             ✅ Highlights
             (Only include this section if there are positive aspects to highlight)
             - Mention specific good practices or implementations
             - Acknowledge well-written code sections
