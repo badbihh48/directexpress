@@ -10,7 +10,7 @@ For details on creating a custom GitHub App, see the [**GitHub App creation docu
 
 -   **Type:** `string`
 -   **Optional:** `true`
--   **Default:** `'You are a helpful assistant.'`
+-   **Default:** `'You are a help assistant.'`
 
 A specific, multi-line prompt to guide Gemini's behavior. This is where you define the persona, workflow, and instructions for the model.
 
