@@ -32,9 +32,9 @@ GitHub Actions → OIDC Token → Workload Identity Pool → Direct GCP Resource
 ### Automatic Permissions
 
 The script automatically grants these essential permissions:
-- **`roles/logging.logWriter`** - Write logs to Cloud Logging
-- **`roles/monitoring.metricWriter`** - Write metrics to Cloud Monitoring
-- **`roles/cloudtrace.agent`** - Send traces to Cloud Trace
+- **`/logging.logWriter`** - Write logs to Cloud Logging
+- **`/monitoring.metricWriter`** - Write metrics to Cloud Monitoring
+- **`/cloudtrace.agent`** - Send traces to Cloud Trace
 
 ## Quick Start
 
