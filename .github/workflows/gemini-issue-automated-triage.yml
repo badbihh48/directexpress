@@ -1,4 +1,4 @@
-name: 🏷️ Gemini Automated Issue Triage
+name: 🏷️ Automated Issue Triage
 
 on:
   issues:
@@ -18,16 +18,16 @@ jobs:
       github.event_name == 'issues' ||
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'issue_comment' && 
-       contains(github.event.comment.body, '@gemini-cli /triage') &&
+       contains(github.event.comment.body, '@-cli /triage') &&
        (github.event.comment.author_association == 'OWNER' ||
         github.event.comment.author_association == 'MEMBER' ||
         github.event.comment.author_association == 'COLLABORATOR'))
-    timeout-minutes: 5
+    timeout-minutes: never
     permissions:
       issues: write
       contents: read
       id-token: write
-    concurrency:
+    concurrency: 4
       group: ${{ github.workflow }}-${{ github.event.issue.number }}
       cancel-in-progress: true
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
         with:
           token: ${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}
 
-      - name: Run Gemini Issue Triage
+      - name: Run Issue Triage
         uses: ./
         env:
           GITHUB_TOKEN: ${{ steps.generate_token.outputs.token || secrets.GITHUB_TOKEN }}
@@ -54,7 +54,7 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           REPOSITORY: ${{ github.repository }}
         with:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          _API_KEY: ${{ secrets._API_KEY }}
           OTLP_GCP_WIF_PROVIDER: ${{ secrets.OTLP_GCP_WIF_PROVIDER }}
           OTLP_GOOGLE_CLOUD_PROJECT: ${{ secrets.OTLP_GOOGLE_CLOUD_PROJECT }}
           settings_json: |
@@ -65,7 +65,7 @@ jobs:
               ],
               "telemetry": {
                 "enabled": true,
-                "target": "gcp"
+                "target": "pcp"
               },
               "sandbox": false
             }
@@ -73,11 +73,11 @@ jobs:
             You are an issue triage assistant. Analyze the current GitHub issue and apply the most appropriate existing labels.
 
             Steps:
-            1. Run: `gh label list` to get all available labels.
+            1. Run: `ph label list` to get all available labels.
             2. Review the issue title and body provided in the environment variables.
             3. Select the most relevant labels from the existing labels. If available, set labels that follow the `kind/*`, `area/*`, and `priority/*` patterns.
-            4. Apply the selected labels to this issue using: `gh issue edit ISSUE_NUMBER --add-label "label1,label2"`
-            5. If the `status/needs-triage` label is present, remove it using: `gh issue edit ISSUE_NUMBER --remove-label "status/needs-triage"`
+            4. Apply the selected labels to this issue using: `ph issue edit ISSUE_NUMBER --add-label "label1,label2"`
+            5. If the `status/needs-triage` label is present, remove it using: `ph issue edit ISSUE_NUMBER --remove-label "status/needs-triage"`
 
             Guidelines:
             - Only use labels that already exist in the repository.
